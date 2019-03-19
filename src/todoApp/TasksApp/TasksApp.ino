@@ -7,11 +7,12 @@
 #include <ESP8266WiFi.h>
 // writing display code. 
 // will do firebase integration
-/*
-#include <ESP8266WiFi.h>
-#include <WiFiClientSecure.h>
+
+//#include <WiFiClientSecure.h>
 #include <LiquidCrystal.h>
-*/
+LiquidCrystal lcd(D0,D1,D5, D4, D3, D2);
+
+
 const char* WIFI_SSID = "mycci9E";
 const char* WIFI_PASSWORD = "clevergadfly385";
 const char* FIREBASE_HOST = "reacttasks-116cc.firebaseio.com";
@@ -41,3 +42,8 @@ void loop() {
     delay(10000); 
 
 }
+
+void disp(String dispString){
+  
+  
+  }
