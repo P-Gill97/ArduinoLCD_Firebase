@@ -17,7 +17,11 @@ const char* WIFI_SSID = "mycci9E";
 const char* WIFI_PASSWORD = "clevergadfly385";
 const char* FIREBASE_HOST = "reacttasks-116cc.firebaseio.com";
 const char* FIREBASE_AUTH = "dMBkRtDxQzajUlZ2DyTo4E7029ZkLds04zltLkT0";
+int i = 1000; // hard coded itterator value for deugging 
+String tempNote ;
+String tempPriority ; 
 void setup() {
+  
   // put your setup code here, to run once:
   Serial.begin(115200);
   Serial.print("Connecting to ");
@@ -38,12 +42,16 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
-  Serial.print(Firebase.getString("notes/-LaHQk1LTCAGmCZHCsSR/noteContent"));
-    delay(10000); 
-
+  for(i ; i>1; i--){ // trying to itterate through firebase list of things to do. 
+    tempNote = Firebase.getString("notes/-LaHQk1LTCAGmCZHCsSR/noteContent");
+    tempPriority = Firebase.getString("notes/-LaHQk1LTCAGmCZHCsSR/priority");
+  disp(tempNote,tempPriority );
+    delay(100000); 
+  }
 }
 
-void disp(String dispString){
-  
-  
+void disp(String dispString, String priority){
+  lcd.print(dispString); 
+  lcd.setCursor(0,1);
+  lcd.print(priority); 
   }
